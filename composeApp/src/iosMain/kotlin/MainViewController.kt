@@ -1,3 +1,11 @@
 import androidx.compose.ui.window.ComposeUIViewController
+import di.initKoin
 
-fun MainViewController() = ComposeUIViewController { App() }
+/*
+ComposeUIViewController has parameter called configure which is a lambda and we can call initKoin() there
+ */
+fun MainViewController() = ComposeUIViewController(
+    configure =  {
+        initKoin()
+    }
+) { App() }
