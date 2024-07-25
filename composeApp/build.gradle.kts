@@ -7,6 +7,8 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.compose.compiler)
+    // Add serialisation plugin
+    alias(libs.plugins.kotlin.serialization)
 }
 
 kotlin {
@@ -33,6 +35,18 @@ kotlin {
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
+
+            // add android okhttp
+            implementation(libs.ktor.client.okhttp)
+
+            // add these dependencies for Koin for Android
+            implementation(libs.koin.android)
+            implementation(libs.koin.androidx.compose)
+        }
+
+        // add darwin here for iOS
+        nativeMain.dependencies {
+            implementation(libs.ktor.client.darwin)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -41,6 +55,16 @@ kotlin {
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
+
+            // add ktor bundle
+            implementation(libs.bundles.ktor)
+
+            // add dependencies from the libs folder for Ktor, nav and viewmodel
+            api(libs.koin.core)
+            implementation(libs.koin.compose)
+            implementation(libs.koin.compose.viewmodel)
+            implementation(libs.lifecycle.viewmodel)
+            implementation(libs.navigation.compose)
         }
     }
 }
