@@ -22,8 +22,11 @@ koin = "3.6.0-Beta4"
 koinComposeMultiplatform = "1.2.0-Beta4"
 
 # navigation and lifecycle viewmodel
+material3Desktop = "1.2.1"
 navigationCompose = "2.8.0-alpha02"
 lifecycleViewModel = "2.8.2"
+
+material3 = "1.2.0"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -54,8 +57,11 @@ koin-compose = { module = "io.insert-koin:koin-compose", version.ref = "koinComp
 koin-compose-viewmodel = { module = "io.insert-koin:koin-compose-viewmodel", version.ref = "koinComposeMultiplatform" }
 
 #
+material3-desktop = { module = "org.jetbrains.compose.material3:material3-desktop", version.ref = "material3Desktop" }
 navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
 lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel", version.ref = "lifecycleViewModel"}
+
+material3 = { group = "androidx.compose.material3-desktop", name = "material3", version.ref = "material3" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
